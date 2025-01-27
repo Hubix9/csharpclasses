@@ -57,8 +57,10 @@ public class Ferrari : Car {
 
 	public override void Print() {
 		Console.WriteLine($"Ferrari information, Brand: {Brand}, Model: {Model}, Year: {Year}, Color: {Color}, Turbo: {Turbo}, Abs: {Abs}");
-	}
-	
+	}	
+	~Ferrari() {
+		Console.WriteLine("Ferrari destructor called");
+	}	
 }
 
 public class ElectricCar : Car, IElectricCar {

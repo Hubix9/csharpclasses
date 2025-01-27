@@ -10,11 +10,11 @@ class Program
     static void Main(string[] args)
     {
         Structures();
-        Classes();
-        Interfaces();
-        Singletons();
-        ValueSemantics();
-        ReferenceSemantics();
+        //Classes();
+        //Interfaces();
+        //Singletons();
+        //ValueSemantics();
+        //ReferenceSemantics();
     }
 
     static void Structures() {
@@ -59,6 +59,18 @@ class Program
         Ferrari myFerrari = new Ferrari(model: "F40", year: 1987, turbo: true, abs: false);
         myFerrari.Print();
 
+    }
+
+    static void DestructorClass() {
+        Ferrari myFerrari = new Ferrari(model: "F40", year: 1987, turbo: true, abs: false);
+        myFerrari.Print();
+        
+        // Wymuszamy usunięcie obiektu z pamięci środowiska, jednocześnie wywołując destruktor jego instancji
+        myFerrari = null;
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        // W konsolii powinno zostać wypisane:
+        // "Ferrari destructor called"
     }
 
     static void Interfaces() {
